@@ -13,6 +13,9 @@
 		CE28CB8A25CEB6530066B296 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE28CB8825CEB6530066B296 /* Main.storyboard */; };
 		CE28CB8C25CEB6550066B296 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE28CB8B25CEB6550066B296 /* Assets.xcassets */; };
 		CE28CB8F25CEB6550066B296 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE28CB8D25CEB6550066B296 /* LaunchScreen.storyboard */; };
+		CE28CB9B25CEBDDE0066B296 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CB9A25CEBDDE0066B296 /* NewsManager.swift */; };
+		CE28CB9E25CEBDF10066B296 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CB9D25CEBDF10066B296 /* NewsModel.swift */; };
+		CE28CBA125CEBE000066B296 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CBA025CEBE000066B296 /* NewsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		CE28CB8B25CEB6550066B296 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE28CB8E25CEB6550066B296 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE28CB9025CEB6550066B296 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE28CB9A25CEBDDE0066B296 /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
+		CE28CB9D25CEBDF10066B296 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		CE28CBA025CEBE000066B296 /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,42 @@
 		CE28CB8125CEB6530066B296 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE28CB9725CEBD8E0066B296 /* Model */,
+				CE28CB9825CEBD9B0066B296 /* VIew */,
+				CE28CB9925CEBDA60066B296 /* Controller */,
 				CE28CB8225CEB6530066B296 /* AppDelegate.swift */,
 				CE28CB8425CEB6530066B296 /* SceneDelegate.swift */,
-				CE28CB8625CEB6530066B296 /* ViewController.swift */,
-				CE28CB8825CEB6530066B296 /* Main.storyboard */,
 				CE28CB8B25CEB6550066B296 /* Assets.xcassets */,
 				CE28CB8D25CEB6550066B296 /* LaunchScreen.storyboard */,
 				CE28CB9025CEB6550066B296 /* Info.plist */,
 			);
 			path = NewsApp;
+			sourceTree = "<group>";
+		};
+		CE28CB9725CEBD8E0066B296 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE28CB9A25CEBDDE0066B296 /* NewsManager.swift */,
+				CE28CB9D25CEBDF10066B296 /* NewsModel.swift */,
+				CE28CBA025CEBE000066B296 /* NewsData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE28CB9825CEBD9B0066B296 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				CE28CB8825CEB6530066B296 /* Main.storyboard */,
+			);
+			name = VIew;
+			sourceTree = "<group>";
+		};
+		CE28CB9925CEBDA60066B296 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE28CB8625CEB6530066B296 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +170,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE28CB9B25CEBDDE0066B296 /* NewsManager.swift in Sources */,
 				CE28CB8725CEB6530066B296 /* ViewController.swift in Sources */,
+				CE28CBA125CEBE000066B296 /* NewsData.swift in Sources */,
 				CE28CB8325CEB6530066B296 /* AppDelegate.swift in Sources */,
 				CE28CB8525CEB6530066B296 /* SceneDelegate.swift in Sources */,
+				CE28CB9E25CEBDF10066B296 /* NewsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +324,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NewsApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,7 +332,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stepanov.NewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -306,6 +343,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NewsApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,7 +351,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stepanov.NewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
