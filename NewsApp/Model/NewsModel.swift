@@ -12,5 +12,5 @@ struct NewsModel {
     let descriptionInformatiom : String
     let urlNews : String
     let urlToImage : String
-    let sorceName : String
+    let sourceName : String
 }

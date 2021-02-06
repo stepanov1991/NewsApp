@@ -7,17 +7,17 @@
 
 import Foundation
 struct NewsData : Codable {
-  let articles : [Articles]
+    let articles : [Articles]
     
 }
 struct Articles : Codable {
-    let author : String
-    let title : String
-    let description : String
-    let url : String
-    let urlToImage : String
-    let sorce : Source
+    let author : String?
+    let title : String?
+    let description : String?
+    let url : String?
+    let urlToImage : String?
+    let source : Source
 }
 struct Source : Codable {
-    let name : String
+    let name : String?
 }
