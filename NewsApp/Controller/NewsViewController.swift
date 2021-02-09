@@ -36,9 +36,9 @@ class NewsViewController: UIViewController {
 }
 //MARK: - NewsManagerDelegate
 extension NewsViewController : NewsManagerDelegate {
-    func didUpdateNews(_ NewsManager: NewsManager, News: NewsModel) {
+    func didUpdateNews(_ NewsManager: NewsManager, News: [NewsModel]) {
         DispatchQueue.main.async {
-            self.newsArray.append(News)
+            self.newsArray.append(contentsOf: News)
             self.tableView.reloadData()
             let indexPath = IndexPath(row: self.newsArray.count - 1, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)

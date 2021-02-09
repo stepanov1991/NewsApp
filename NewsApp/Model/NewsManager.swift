@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NewsManagerDelegate {
-    func didUpdateNews(_ NewsManager: NewsManager, News: NewsModel)
+    func didUpdateNews(_ NewsManager: NewsManager, News: [NewsModel])
     func didFailWithError(error: Error)
 }
 
@@ -46,7 +46,7 @@ struct NewsManager {
         }
         
     }
-    func parseJSON(_ newsData: Data) -> NewsModel? {
+    func parseJSON(_ newsData: Data) -> [NewsModel]? {
         let decoder = JSONDecoder()
         do{
             let decoderData = try decoder.decode(NewsData.self, from: newsData)
@@ -58,11 +58,15 @@ struct NewsManager {
             let urlToImage = decoderData.articles[0].urlToImage
             let sourceName = decoderData.articles[0].source.name
             let totalResults = decoderData.totalResults
+            var newsArray = [NewsModel]()
+           
+            for _ in 1...totalResults {
+                let news = NewsModel(authorName: authorName ?? "", titleInformation: titleInformation ?? "", descriptionInformatiom: descriptionInformatiom ?? "", urlNews: urlNews ?? "", urlToImage: urlToImage ?? "", sourceName: sourceName ?? "", totalResults: totalResults)
+                newsArray.append(news)
+            }
             
             
-            let news = NewsModel(authorName: authorName ?? "", titleInformation: titleInformation ?? "", descriptionInformatiom: descriptionInformatiom ?? "", urlNews: urlNews ?? "", urlToImage: urlToImage ?? "", sourceName: sourceName ?? "", totalResults: totalResults)
-            
-            return news
+            return newsArray
         }
         catch{
             self.delegate?.didFailWithError(error: error)
