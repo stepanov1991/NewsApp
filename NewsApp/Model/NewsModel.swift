@@ -13,4 +13,5 @@ struct NewsModel {
     let urlNews : String
     let urlToImage : String
     let sourceName : String
+    let totalResults : Int
 }

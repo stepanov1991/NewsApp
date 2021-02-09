@@ -9,20 +9,23 @@
 /* Begin PBXBuildFile section */
 		CE28CB8325CEB6530066B296 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CB8225CEB6530066B296 /* AppDelegate.swift */; };
 		CE28CB8525CEB6530066B296 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CB8425CEB6530066B296 /* SceneDelegate.swift */; };
-		CE28CB8725CEB6530066B296 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CB8625CEB6530066B296 /* ViewController.swift */; };
+		CE28CB8725CEB6530066B296 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CB8625CEB6530066B296 /* NewsViewController.swift */; };
 		CE28CB8A25CEB6530066B296 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE28CB8825CEB6530066B296 /* Main.storyboard */; };
 		CE28CB8C25CEB6550066B296 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE28CB8B25CEB6550066B296 /* Assets.xcassets */; };
 		CE28CB8F25CEB6550066B296 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE28CB8D25CEB6550066B296 /* LaunchScreen.storyboard */; };
 		CE28CB9B25CEBDDE0066B296 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CB9A25CEBDDE0066B296 /* NewsManager.swift */; };
 		CE28CB9E25CEBDF10066B296 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CB9D25CEBDF10066B296 /* NewsModel.swift */; };
 		CE28CBA125CEBE000066B296 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CBA025CEBE000066B296 /* NewsData.swift */; };
+		CE28CBA825CEEB380066B296 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CBA625CEEB380066B296 /* NewsCell.swift */; };
+		CE28CBA925CEEB380066B296 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE28CBA725CEEB380066B296 /* NewsCell.xib */; };
+		CE28CBB925CF060D0066B296 /* Konstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CBB825CF060D0066B296 /* Konstant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE28CB7F25CEB6530066B296 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE28CB8225CEB6530066B296 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE28CB8425CEB6530066B296 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE28CB8625CEB6530066B296 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE28CB8625CEB6530066B296 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		CE28CB8925CEB6530066B296 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE28CB8B25CEB6550066B296 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE28CB8E25CEB6550066B296 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +33,9 @@
 		CE28CB9A25CEBDDE0066B296 /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 		CE28CB9D25CEBDF10066B296 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		CE28CBA025CEBE000066B296 /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
+		CE28CBA625CEEB380066B296 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		CE28CBA725CEEB380066B296 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		CE28CBB825CF060D0066B296 /* Konstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Konstant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 				CE28CB8B25CEB6550066B296 /* Assets.xcassets */,
 				CE28CB8D25CEB6550066B296 /* LaunchScreen.storyboard */,
 				CE28CB9025CEB6550066B296 /* Info.plist */,
+				CE28CBB825CF060D0066B296 /* Konstant.swift */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -88,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				CE28CB8825CEB6530066B296 /* Main.storyboard */,
+				CE28CBA625CEEB380066B296 /* NewsCell.swift */,
+				CE28CBA725CEEB380066B296 /* NewsCell.xib */,
 			);
 			name = VIew;
 			sourceTree = "<group>";
@@ -95,7 +104,7 @@
 		CE28CB9925CEBDA60066B296 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CE28CB8625CEB6530066B296 /* ViewController.swift */,
+				CE28CB8625CEB6530066B296 /* NewsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -159,6 +168,7 @@
 			files = (
 				CE28CB8F25CEB6550066B296 /* LaunchScreen.storyboard in Resources */,
 				CE28CB8C25CEB6550066B296 /* Assets.xcassets in Resources */,
+				CE28CBA925CEEB380066B296 /* NewsCell.xib in Resources */,
 				CE28CB8A25CEB6530066B296 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,8 +181,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE28CB9B25CEBDDE0066B296 /* NewsManager.swift in Sources */,
-				CE28CB8725CEB6530066B296 /* ViewController.swift in Sources */,
+				CE28CB8725CEB6530066B296 /* NewsViewController.swift in Sources */,
 				CE28CBA125CEBE000066B296 /* NewsData.swift in Sources */,
+				CE28CBB925CF060D0066B296 /* Konstant.swift in Sources */,
+				CE28CBA825CEEB380066B296 /* NewsCell.swift in Sources */,
 				CE28CB8325CEB6530066B296 /* AppDelegate.swift in Sources */,
 				CE28CB8525CEB6530066B296 /* SceneDelegate.swift in Sources */,
 				CE28CB9E25CEBDF10066B296 /* NewsModel.swift in Sources */,
