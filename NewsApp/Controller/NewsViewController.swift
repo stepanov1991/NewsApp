@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class NewsViewController: UIViewController {
     
@@ -68,7 +70,21 @@ extension NewsViewController: UITableViewDataSource {
         cell.descriptionLabel.text = news.descriptionInformatiom
         cell.sourceLabel.text = news.sourceName
         cell.titleLabel.text = news.titleInformation
-        print(cell.authorlabel.text)
+        
+        AF.request(news.urlToImage).responseImage { response in
+            debugPrint(response)
+
+            print(response.request)
+            print(response.response)
+            debugPrint(response.result)
+
+            if case .success(let image) = response.result {
+                DispatchQueue.main.async {
+                    cell.newsImage.image = image
+                }
+              
+            }
+        }
         
         return cell
         
