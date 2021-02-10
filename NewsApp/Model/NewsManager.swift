@@ -15,7 +15,7 @@ protocol NewsManagerDelegate {
 struct NewsManager {
     
     
-    let newsUrl = "https://newsapi.org/v2/top-headlines?apiKey=0343443b19274dabb388688b381998ef&country=us"
+    let newsUrl = "https://newsapi.org/v2/top-headlines?apiKey=0343443b19274dabb388688b381998ef&country=us&pageSize=100"
     var delegate : NewsManagerDelegate?
     
     
@@ -51,16 +51,19 @@ struct NewsManager {
         do{
             let decoderData = try decoder.decode(NewsData.self, from: newsData)
             
-            let authorName = decoderData.articles[0].author
-            let titleInformation = decoderData.articles[0].title
-            let descriptionInformatiom = decoderData.articles[0].description
-            let urlNews = decoderData.articles[0].url
-            let urlToImage = decoderData.articles[0].urlToImage
-            let sourceName = decoderData.articles[0].source.name
+            
             let totalResults = decoderData.totalResults
             var newsArray = [NewsModel]()
            
-            for _ in 1...totalResults {
+            for result in 0...totalResults-1 {
+                print(result)
+                let authorName = decoderData.articles[result].author
+                let titleInformation = decoderData.articles[result].title
+                let descriptionInformatiom = decoderData.articles[result].description
+                let urlNews = decoderData.articles[result].url
+                let urlToImage = decoderData.articles[result].urlToImage
+                let sourceName = decoderData.articles[result].source.name
+                
                 let news = NewsModel(authorName: authorName ?? "", titleInformation: titleInformation ?? "", descriptionInformatiom: descriptionInformatiom ?? "", urlNews: urlNews ?? "", urlToImage: urlToImage ?? "", sourceName: sourceName ?? "", totalResults: totalResults)
                 newsArray.append(news)
             }
