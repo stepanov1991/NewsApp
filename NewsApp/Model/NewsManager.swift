@@ -56,20 +56,23 @@ struct NewsManager {
             var newsArray = [NewsModel]()
            
             for result in 0...totalResults-1 {
-                print(result)
+               
                 let authorName = decoderData.articles[result].author
                 let titleInformation = decoderData.articles[result].title
                 let descriptionInformatiom = decoderData.articles[result].description
                 let urlNews = decoderData.articles[result].url
                 let urlToImage = decoderData.articles[result].urlToImage
                 let sourceName = decoderData.articles[result].source.name
+                let publishedAt = decoderData.articles[result].publishedAt
                 
-                let news = NewsModel(authorName: authorName ?? "", titleInformation: titleInformation ?? "", descriptionInformatiom: descriptionInformatiom ?? "", urlNews: urlNews ?? "", urlToImage: urlToImage ?? "", sourceName: sourceName ?? "", totalResults: totalResults)
+                let news = NewsModel(authorName: authorName ?? "", titleInformation: titleInformation ?? "", descriptionInformatiom: descriptionInformatiom ?? "", urlNews: urlNews ?? "", urlToImage: urlToImage ?? "", sourceName: sourceName ?? "", totalResults: totalResults, publishedAt: publishedAt ?? "")
                 newsArray.append(news)
             }
+            let sortedNewsArray = newsArray.sorted { (first: NewsModel, second: NewsModel) -> Bool in
+                first.publishedAt > second.publishedAt
+            }
             
-            
-            return newsArray
+            return sortedNewsArray
         }
         catch{
             self.delegate?.didFailWithError(error: error)

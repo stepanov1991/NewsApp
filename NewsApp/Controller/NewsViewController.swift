@@ -49,7 +49,7 @@ extension NewsViewController : NewsManagerDelegate {
             self.newsArray.append(contentsOf: News)
             self.tableView.reloadData()
             let indexPath = IndexPath(row: self.newsArray.count - 1, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+               
     
         }
     }
@@ -76,7 +76,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.descriptionLabel.text = news.descriptionInformatiom
         cell.sourceLabel.text = news.sourceName
         cell.titleLabel.text = news.titleInformation
-        
+       
         AF.request(news.urlToImage).responseImage { response in
             debugPrint(response)
 
@@ -97,6 +97,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let news = newsArray[indexPath.row]
+        
         let vc = storyboard?.instantiateViewController(withIdentifier: K.detailViewIdentifier) as! DetailViewController
         vc.url = news.urlNews
         navigationController?.pushViewController(vc, animated: true)
