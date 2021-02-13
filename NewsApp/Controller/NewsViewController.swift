@@ -9,11 +9,14 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
+
 class NewsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     var newsManager = NewsManager()
+    
+    
     
     var totalResults = 0
     var newsArray : [NewsModel] = []
@@ -24,6 +27,7 @@ class NewsViewController: UIViewController {
         
         newsManager.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         
         tableView.register(UINib(nibName: K.cellIdentifier , bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
        
@@ -33,6 +37,8 @@ class NewsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+ 
 
 
 }
@@ -55,7 +61,7 @@ extension NewsViewController : NewsManagerDelegate {
     
 }
 //MARK: - UITableViewDataSource
-extension NewsViewController: UITableViewDataSource {
+extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArray.count
         
@@ -89,7 +95,15 @@ extension NewsViewController: UITableViewDataSource {
         return cell
         
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let news = newsArray[indexPath.row]
+        let vc = storyboard?.instantiateViewController(withIdentifier: K.detailViewIdentifier) as! DetailViewController
+        vc.url = news.urlNews
+        navigationController?.pushViewController(vc, animated: true)
 
-
+////        }
+//    }
+    }
 }
+
 

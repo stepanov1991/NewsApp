@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		CE28CBA825CEEB380066B296 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CBA625CEEB380066B296 /* NewsCell.swift */; };
 		CE28CBA925CEEB380066B296 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE28CBA725CEEB380066B296 /* NewsCell.xib */; };
 		CE28CBB925CF060D0066B296 /* Konstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CBB825CF060D0066B296 /* Konstant.swift */; };
+		CE28CBED25D5AE9B0066B296 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28CBEC25D5AE9B0066B296 /* DetailViewController.swift */; };
 		FEA55CB4E44AB5DD78DD7A72 /* Pods_NewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA13DF671A2934A773D84827 /* Pods_NewsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		CE28CBA625CEEB380066B296 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		CE28CBA725CEEB380066B296 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		CE28CBB825CF060D0066B296 /* Konstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Konstant.swift; sourceTree = "<group>"; };
+		CE28CBEC25D5AE9B0066B296 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DA13DF671A2934A773D84827 /* Pods_NewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				CE28CB8625CEB6530066B296 /* NewsViewController.swift */,
+				CE28CBEC25D5AE9B0066B296 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -130,7 +133,6 @@
 				BFC49D1921CF4176899A216D /* Pods-NewsApp.debug.xcconfig */,
 				7D371C2C028EF7CC564CD714 /* Pods-NewsApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -249,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE28CBED25D5AE9B0066B296 /* DetailViewController.swift in Sources */,
 				CE28CB9B25CEBDDE0066B296 /* NewsManager.swift in Sources */,
 				CE28CB8725CEB6530066B296 /* NewsViewController.swift in Sources */,
 				CE28CBA125CEBE000066B296 /* NewsData.swift in Sources */,

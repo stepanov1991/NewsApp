@@ -8,4 +8,5 @@
 import Foundation
 struct  K {
     static let cellIdentifier = "NewsCell"
+    static let detailViewIdentifier = "Detail"
 }
