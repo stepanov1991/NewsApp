@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct NewsModel {
     let authorName : String
     let titleInformation : String

@@ -15,9 +15,6 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var newsManager = NewsManager()
-    
-    
-    
     var totalResults = 0
     var newsArray : [NewsModel] = []
     
@@ -33,9 +30,7 @@ class NewsViewController: UIViewController {
        
         newsManager.getNews()
         
-        
-        
-        // Do any additional setup after loading the view.
+   
     }
     
  
@@ -60,7 +55,7 @@ extension NewsViewController : NewsManagerDelegate {
     
     
 }
-//MARK: - UITableViewDataSource
+//MARK: - UITableViewDataSource, UITableViewDelegate
 extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArray.count
@@ -102,8 +97,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         vc.url = news.urlNews
         navigationController?.pushViewController(vc, animated: true)
 
-////        }
-//    }
+
     }
 }
 

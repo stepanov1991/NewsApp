@@ -14,7 +14,6 @@ protocol NewsManagerDelegate {
 
 struct NewsManager {
     
-    
     let newsUrl = "https://newsapi.org/v2/top-headlines?apiKey=0343443b19274dabb388688b381998ef&country=us&pageSize=100"
     var delegate : NewsManagerDelegate?
     
@@ -46,6 +45,8 @@ struct NewsManager {
         }
         
     }
+    
+    
     func parseJSON(_ newsData: Data) -> [NewsModel]? {
         let decoder = JSONDecoder()
         do{
@@ -68,6 +69,8 @@ struct NewsManager {
                 let news = NewsModel(authorName: authorName ?? "", titleInformation: titleInformation ?? "", descriptionInformatiom: descriptionInformatiom ?? "", urlNews: urlNews ?? "", urlToImage: urlToImage ?? "", sourceName: sourceName ?? "", totalResults: totalResults, publishedAt: publishedAt ?? "")
                 newsArray.append(news)
             }
+            
+            // sort list by publishedAt
             let sortedNewsArray = newsArray.sorted { (first: NewsModel, second: NewsModel) -> Bool in
                 first.publishedAt > second.publishedAt
             }
