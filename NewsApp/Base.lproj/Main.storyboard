@@ -17,22 +17,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tkK-n1-eDA">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5Aj-QN-H6w">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tdl-Mn-5Fe">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tkK-n1-eDA">
+                                        <rect key="frame" x="0.0" y="67" width="414" height="707"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tkK-n1-eDA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="L2C-A5-Qpa"/>
-                            <constraint firstItem="tkK-n1-eDA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="caT-vm-e4s"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tkK-n1-eDA" secondAttribute="bottom" id="uSQ-wX-2VN"/>
-                            <constraint firstItem="tkK-n1-eDA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wVU-B4-d4p"/>
+                            <constraint firstItem="5Aj-QN-H6w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2BL-9S-rxn"/>
+                            <constraint firstItem="5Aj-QN-H6w" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="CBy-XW-UNQ"/>
+                            <constraint firstItem="5Aj-QN-H6w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G4O-63-Ue7"/>
+                            <constraint firstItem="5Aj-QN-H6w" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="lpB-e2-W43"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nLB-ko-8TE"/>
                     <connections>
+                        <outlet property="searchBar" destination="tdl-Mn-5Fe" id="qzT-DS-4R1"/>
                         <outlet property="tableView" destination="tkK-n1-eDA" id="nXP-tN-6m1"/>
                     </connections>
                 </viewController>
