@@ -12,17 +12,22 @@ protocol NewsManagerDelegate {
     func didFailWithError(error: Error)
 }
 
-struct NewsManager {
+class NewsManager {
     
-    let newsUrl = "https://newsapi.org/v2/top-headlines?apiKey=0343443b19274dabb388688b381998ef&country=us&pageSize=100"
+    let baseUrl = "https://newsapi.org/v2/top-headlines?apiKey=0343443b19274dabb388688b381998ef&pageSize=100"
     var delegate : NewsManagerDelegate?
     
+    let countryArray = ["ae", "ar", "at", "au", "be", "bg", "br", "ca", "ch", "cn", "co", "cu", "cz", "de", "eg", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr", "lt", "lv", "ma", "mx", "my", "ng", "nl", "no", "nz", "ph", "pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"]
     
-    func getNews() {
-        
-        performRequest(with: newsUrl)
-        
-    }
+    func getNews(country: String) {
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print(country)
+        let urlString = "\(baseUrl)&country=\(country)"
+        print(urlString)
+        performRequest(with: urlString)
+       
+   }
+
     
     
     func performRequest(with urlString: String) {

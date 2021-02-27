@@ -9,4 +9,5 @@ target 'NewsApp' do
 
 pod 'AlamofireImage', '~> 4.1'
 
+
 end

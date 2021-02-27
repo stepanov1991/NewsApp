@@ -19,6 +19,7 @@ class NewsViewController: UIViewController {
     var totalResults = 0
     var newsArray : [NewsModel] = []
     var filterNews : [NewsModel]!
+    var country = "us"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,32 @@ class NewsViewController: UIViewController {
         searchBar.delegate = self
         tableView.register(UINib(nibName: K.cellIdentifier , bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
         filterNews = newsArray
-        newsManager.getNews()
+        
+        newsManager.getNews(country: country)
+        
+       
+        
+        
+        
+    }
+    
+    
+    @IBAction func filterPressed(_ sender: UIBarButtonItem) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: K.filterViewIdentifier) as! FilterViewController
+        navigationController?.pushViewController(vc, animated: true)
+        vc.newsVievController = self
+    }
+    
+    func getCountry(country : String )  {
+     
+        DispatchQueue.main.async {
+          
+            self.newsArray.removeAll()
+            self.newsManager.getNews(country: country)
+            self.tableView.reloadData()
+        }
+     
+      
         
         
         
@@ -76,12 +102,12 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel.text = news.titleInformation
         
         AF.request(news.urlToImage).responseImage { response in
-            debugPrint(response)
-            
-            print(response.request)
-            print(response.response)
-            debugPrint(response.result)
-            
+//            debugPrint(response)
+//
+//            print(response.request)
+//            print(response.response)
+//            debugPrint(response.result)
+//
             if case .success(let image) = response.result {
                 DispatchQueue.main.async {
                     cell.newsImage.image = image
@@ -108,20 +134,17 @@ extension NewsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        print(searchText)
         filterNews = []
         if searchText == "" {
             filterNews = newsArray
         }
         else {
             for news in newsArray {
-             
                 if news.authorName.lowercased().contains(searchText.lowercased()) || news.descriptionInformatiom.lowercased().contains(searchText.lowercased()) || news.sourceName.lowercased().contains(searchText.lowercased()) || news.titleInformation.lowercased().contains(searchText.lowercased()) {
-                    print(news)
                     filterNews.append(news)
                 }
-        }
-      
+            }
+            
         }
         self.tableView.reloadData()
     }
