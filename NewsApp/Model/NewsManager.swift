@@ -19,15 +19,15 @@ class NewsManager {
     
     let countryArray = ["ae", "ar", "at", "au", "be", "bg", "br", "ca", "ch", "cn", "co", "cu", "cz", "de", "eg", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr", "lt", "lv", "ma", "mx", "my", "ng", "nl", "no", "nz", "ph", "pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"]
     
-    func getNews(country: String) {
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        print(country)
-        let urlString = "\(baseUrl)&country=\(country)"
-        print(urlString)
+    let categoryArray = ["business", "entertainment", "general", "health", "science", "sports", "technology"]
+    
+    func getNews(country: String, category: String) {
+        
+        let urlString = "\(baseUrl)&country=\(country)&category=\(category)"
         performRequest(with: urlString)
-       
-   }
-
+        
+    }
+    
     
     
     func performRequest(with urlString: String) {
@@ -60,9 +60,9 @@ class NewsManager {
             
             let totalResults = decoderData.totalResults
             var newsArray = [NewsModel]()
-           
+            
             for result in 0...totalResults-1 {
-               
+                
                 let authorName = decoderData.articles[result].author
                 let titleInformation = decoderData.articles[result].title
                 let descriptionInformatiom = decoderData.articles[result].description

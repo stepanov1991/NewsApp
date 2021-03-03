@@ -9,34 +9,44 @@ import UIKit
 
 class FilterViewController: UIViewController {
     
+    @IBOutlet weak var countrySwicher: UISwitch!
+    @IBOutlet weak var categorySwicher: UISwitch!
+    
+    
     var newsManager = NewsManager()
     var newsVievController : NewsViewController?
-    var country : String = ""
+    var country = "us"
+    var category = "general"
+    var picker1Options : [String] = []
+    var picker2Options : [String] = []
     
     
     @IBOutlet weak var countryPicker: UIPickerView!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         countryPicker.delegate = self
         countryPicker.dataSource = self
+        picker1Options = newsManager.countryArray
+        picker2Options = newsManager.categoryArray
         
-//        var filderCountryData: [CountryFilter] = []
-//
-//        filderCountryData.append(
-//            CountryFilter(code: "ua", name: "Ukraine")
-//        )
-        
-//        let locale = Locale(identifier: "ua") // Country names in Spanish
-//        let countryName = locale.localizedString(forRegionCode: "ua")
-
         
     }
     
-
+    @IBAction func countrySwicherPressed(_ sender: UISwitch) {
+        if sender.isOn {
+            newsVievController?.getCountry(country: country, category: category)
+        }
+    }
     
-
+    @IBAction func categorySwicherPressed(_ sender: UISwitch) {
+        if sender.isOn {
+            newsVievController?.getCountry(country: country, category: category)
+        }
+    }
+    
+    
 }
 
 extension FilterViewController : UIPickerViewDelegate, UIPickerViewDataSource {
@@ -45,29 +55,47 @@ extension FilterViewController : UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return newsManager.countryArray.count
+        if pickerView.tag == 1 {
+            return picker1Options.count
+        }
+        else {
+            return picker2Options.count
+        }
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let code = newsManager.countryArray[row]
-        let locale = Locale.current
-        return locale.localizedString(forRegionCode: code)
+        if pickerView.tag == 1 {
+            let code = picker1Options[row]
+            let locale = Locale.current
+            return locale.localizedString(forRegionCode: code)
+        }
+        else{
+            return picker2Options[row].uppercased()
+        }
     }
     
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        country = newsManager.countryArray[row]
-        newsVievController?.getCountry(country: country)
-       
+        if pickerView.tag == 1 {
+            country = picker1Options[row]
+            if countrySwicher.isOn {
+                newsVievController?.getCountry(country: country, category: category)
+            }
+            
+        }
+        else{
+            category = picker2Options[row]
+            
+            if categorySwicher.isOn{
+                newsVievController?.getCountry(country: country, category: category)
+            }
+           
+        }
+        
+        
     }
     
 }
 
-//class CountryFilter {
-//    let code: String
-//    let name: String
-//
-//    init(code: String, name: String) {
-//        self.code = code
-//        self.name = name
-//    }
-//}
+

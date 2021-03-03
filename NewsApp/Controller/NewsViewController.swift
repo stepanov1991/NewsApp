@@ -20,6 +20,7 @@ class NewsViewController: UIViewController {
     var newsArray : [NewsModel] = []
     var filterNews : [NewsModel]!
     var country = "us"
+    var category = "general"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class NewsViewController: UIViewController {
         tableView.register(UINib(nibName: K.cellIdentifier , bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
         filterNews = newsArray
         
-        newsManager.getNews(country: country)
+        newsManager.getNews(country: country, category: category)
         
        
         
@@ -46,12 +47,12 @@ class NewsViewController: UIViewController {
         vc.newsVievController = self
     }
     
-    func getCountry(country : String )  {
+    func getCountry(country : String, category: String )  {
      
         DispatchQueue.main.async {
           
             self.newsArray.removeAll()
-            self.newsManager.getNews(country: country)
+            self.newsManager.getNews(country: country, category: category)
             self.tableView.reloadData()
         }
      
@@ -102,12 +103,12 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel.text = news.titleInformation
         
         AF.request(news.urlToImage).responseImage { response in
-//            debugPrint(response)
-//
-//            print(response.request)
-//            print(response.response)
-//            debugPrint(response.result)
-//
+            debugPrint(response)
+
+            print(response.request)
+            print(response.response)
+            debugPrint(response.result)
+
             if case .success(let image) = response.result {
                 DispatchQueue.main.async {
                     cell.newsImage.image = image
