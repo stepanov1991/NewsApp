@@ -9,7 +9,6 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-
 class NewsViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -29,53 +28,45 @@ class NewsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+        
         tableView.register(UINib(nibName: K.cellIdentifier , bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
         filterNews = newsArray
-        
         newsManager.getNews(country: country, category: category)
-        
-       
-        
-        
-        
+         
     }
     
     
     @IBAction func filterPressed(_ sender: UIBarButtonItem) {
+        
         let vc = storyboard?.instantiateViewController(withIdentifier: K.filterViewIdentifier) as! FilterViewController
         navigationController?.pushViewController(vc, animated: true)
         vc.newsVievController = self
+        
     }
     
     func getCountry(country : String, category: String )  {
      
         DispatchQueue.main.async {
-          
             self.newsArray.removeAll()
             self.newsManager.getNews(country: country, category: category)
             self.tableView.reloadData()
         }
      
-      
-        
-        
-        
     }
-    
-    
-    
-    
+  
 }
 //MARK: - NewsManagerDelegate
 extension NewsViewController : NewsManagerDelegate {
     
     func didUpdateNews(_ NewsManager: NewsManager, News: [NewsModel]) {
+        
         DispatchQueue.main.async {
             self.newsArray.append(contentsOf: News)
             self.filterNews = self.newsArray
             self.tableView.reloadData()
             let indexPath = IndexPath(row: self.newsArray.count - 1, section: 0)
         }
+        
     }
     
     func didFailWithError(error: Error) {
@@ -89,12 +80,10 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filterNews.count
-        
-        
-        
-    }
+ }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let news = filterNews[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! NewsCell
         cell.authorlabel.text = news.authorName
@@ -120,6 +109,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
         
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let news = newsArray[indexPath.row]
         
@@ -127,8 +117,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         vc.url = news.urlNews
         navigationController?.pushViewController(vc, animated: true)
         
-        
-    }
+   }
 }
 //MARK: - UISearchBarDelegate
 extension NewsViewController: UISearchBarDelegate {

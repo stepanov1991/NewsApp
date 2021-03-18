@@ -65,6 +65,7 @@ extension FilterViewController : UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
         if pickerView.tag == 1 {
             let code = picker1Options[row]
             let locale = Locale.current
@@ -77,6 +78,7 @@ extension FilterViewController : UIPickerViewDelegate, UIPickerViewDataSource {
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         if pickerView.tag == 1 {
             country = picker1Options[row]
             if countrySwicher.isOn {

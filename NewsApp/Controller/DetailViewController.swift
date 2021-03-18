@@ -11,14 +11,14 @@ import WebKit
 class DetailViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
-    var url: String = ""
+    var url = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let newsUrl = URL(string: url)
         let newsRequest = URLRequest(url: newsUrl!)
         webView.load(newsRequest)
-        // Do any additional setup after loading the view.
+
     }
     
     override func loadView() {
