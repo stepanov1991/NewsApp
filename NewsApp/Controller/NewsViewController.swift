@@ -33,8 +33,10 @@ class NewsViewController: UIViewController {
         filterNews = newsArray
         newsManager.getNews(country: country, category: category)
          
+        
     }
     
+
     
     @IBAction func filterPressed(_ sender: UIBarButtonItem) {
         
