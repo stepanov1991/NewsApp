@@ -75,7 +75,7 @@ class NewsManager {
                 newsArray.append(news)
             }
             
-            // sort list by publishedAt
+            // Sort List By PublishedAt
             let sortedNewsArray = newsArray.sorted { (first: NewsModel, second: NewsModel) -> Bool in
                 first.publishedAt > second.publishedAt
             }
